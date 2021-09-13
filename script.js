@@ -50,7 +50,6 @@ $(document).ready(function () {
     }
 
     $(".list-group").click(function (event) {
-        // console.log(event.target.getAttribute('value'));
         cityName = event.target.getAttribute("value");
         console.log(cityName);
         apiCall(cityName);
@@ -65,4 +64,19 @@ $(document).ready(function () {
         storeInput();
         renderInputs();
         $cityName.val("");
-      });
+    });
+
+    function apiCall(cityName) {
+        const cityURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKey}&units=imperial`;
+        const fiveDayURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKey}&units=imperial`;
+
+        $.ajax({
+            url: cityURL,
+            method: "GET",
+        }).then(function (cityData) {
+            console.log(cityData);
+            const iconCode = cityData.weather[0].icon;
+            const iconURL = `https://openweathermap.org/img/w/${iconCode}.png`;
+            const lat = cityData.coord.lat;
+            const lon = cityData.coord.lon;
+            const uvURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${APIKey}&lat=${lat}&lon=${lon}`;
