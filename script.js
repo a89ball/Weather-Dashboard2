@@ -48,7 +48,7 @@ $(document).ready(function () {
         apiCall(cityName);
         renderInputs();
     }
-    
+
     $(".list-group").click(function (event) {
         // console.log(event.target.getAttribute('value'));
         cityName = event.target.getAttribute("value");
@@ -57,3 +57,12 @@ $(document).ready(function () {
         renderInputs();
         $cityName.val("");
     });
+
+    $("#search-button").click(function () {
+        event.preventDefault();
+        cityName = $cityName.val();
+        apiCall(cityName);
+        storeInput();
+        renderInputs();
+        $cityName.val("");
+      });
