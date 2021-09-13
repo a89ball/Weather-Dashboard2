@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +15,42 @@
 </head>
 
 <body>
+    <h1 class="display-4 title text-center">Weather Dashboard</h1>
 
+    <div class="container-fluid row">
+        <div class="search sidenav col-lg-3 col-xs-12">
+            <h4>Search for a city:</h4>
+            <form class="form-inline">
+                <input type="text" class="form-control" id="search-box" placeholder="e.g. London" />
+                <button type="submit" id="search-button" class="btn-grad" placeholder="Click here...">
+                    <i class="fas fa-search"></i>
+
+                </button>
+            </form>
+            <div>
+                <ul class="history list-group"></ul>
+            </div>
+        </div>
+
+        <div class="container col-9">
+            <div class="card card-body city-card col-12"></div>
+            <div class="col-12">
+                <h3>5 Day Forecast:</h3>
+                <div id="five-day-cards" class="row">
+                    <div id="day1" class="card card-body bg-primary weather-card"></div>
+                    <div id="day2" class="card card-body bg-primary weather-card"></div>
+                    <div id="day3" class="card card-body bg-primary weather-card"></div>
+                    <div id="day4" class="card card-body bg-primary weather-card"></div>
+                    <div id="day5" class="card card-body bg-primary weather-card"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.1/moment.min.js"></script>
 <script src="https://openweathermap.org/api/one-call-api"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous"></script>
 <script src="script.js"></script>
+
 </html>
